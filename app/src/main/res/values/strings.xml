@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GameVault</string>
+
+    <string name="title_category_list">GameVault</string>
+    <string name="title_category_detail">Detalle de categoría</string>
+    <string name="title_product_list">Videojuegos</string>
+    <string name="title_product_detail">Detalle del videojuego</string>
+    <string name="item_content">Contenido</string>
+    <string name="item_details">Detalles</string>
+</resources>
