@@ -1,48 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".product.ProductDetailActivity">
+    android:background="@color/gv_white">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".product.ProductDetailActivity">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
+        <!-- Barra superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/gv_purple"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="←"
+                android:textColor="@color/gv_white"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:text="Descripción"
+                android:textColor="@color/gv_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/favorite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="♡"
+                android:textColor="@color/gv_white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="⋮"
+                android:textColor="@color/gv_white"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Contenido -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <LinearLayout
-                android:orientation="vertical"
+            <ImageView
+                android:id="@+id/product_image"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:background="@color/gv_light_purple"
+                android:contentDescription="Imagen del videojuego" />
 
-                <ImageView
-                    android:id="@+id/product_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    tools:src="@tools:sample/avatars"/>
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Baldur's Gate 3"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/product_detail"
-                    style="?android:attr/textAppearanceMedium"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:textIsSelectable="false"
-                    tools:text="@string/item_details"/>
+            <TextView
+                android:id="@+id/product_genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="GÉNERO\nRPG"
+                android:textColor="@color/gv_purple"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </ScrollView>
+            <TextView
+                android:id="@+id/product_platform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="PLATAFORMA\nPC, PlayStation 5, Xbox Series X|S"
+                android:textColor="@color/gv_purple"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/product_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="AÑO DE LANZAMIENTO\n2023"
+                android:textColor="@color/gv_purple"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/product_developer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="DESARROLLADORA\nLarian Studios"
+                android:textColor="@color/gv_purple"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/product_likes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="ME GUSTA\n♥ 34.6k"
+                android:textColor="@color/gv_red"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/product_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="DESCRIPCIÓN"
+                android:textColor="@color/gv_purple"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/product_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Reúne a tu grupo y vuelve a los Reinos Olvidados en una historia de compañerismo, traición, sacrificio y supervivencia."
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

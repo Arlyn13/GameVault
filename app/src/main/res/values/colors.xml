@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="gv_purple">#5E2BBE</color>
+    <color name="gv_purple_dark">#2D155F</color>
+    <color name="gv_lavender">#F7F0FF</color>
+    <color name="gv_light_purple">#E8D9FF</color>
+    <color name="gv_text_gray">#77708A</color>
+    <color name="gv_border">#C9A8FF</color>
+    <color name="gv_white">#FFFFFF</color>
+    <color name="gv_red">#E53935</color>
 </resources>
