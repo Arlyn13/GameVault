@@ -1,0 +1,254 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Baldur's Gate 3",
+      "genre": "RPG",
+      "platform": "PC, PlayStation 5, Xbox Series X|S",
+      "year": 2023,
+      "developer": "Larian Studios",
+      "description": "Baldur's Gate 3 es un RPG de fantasía donde el jugador puede crear su personaje, formar un grupo de compañeros y tomar decisiones que afectan al desarrollo de la historia. Combina exploración, combates por turnos y una narrativa muy centrada en las elecciones del jugador.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1086940/header.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Red Dead Redemption 2",
+      "genre": "Acción / Aventura",
+      "platform": "PC, PlayStation 4, Xbox One",
+      "year": 2018,
+      "developer": "Rockstar Games",
+      "description": "Red Dead Redemption 2 es una aventura ambientada en el Lejano Oeste. El jugador acompaña a Arthur Morgan y a la banda de Van der Linde mientras intentan sobrevivir en un mundo cada vez más perseguido por la ley.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Hades",
+      "genre": "Roguelike",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox",
+      "year": 2020,
+      "developer": "Supergiant Games",
+      "description": "Hades es un juego de acción en el que el jugador controla a Zagreus, hijo de Hades, mientras intenta escapar del inframundo. Cada intento permite mejorar habilidades, desbloquear armas y avanzar en la historia.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1145360/header.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Stardew Valley",
+      "genre": "Simulación",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox, móvil",
+      "year": 2016,
+      "developer": "ConcernedApe",
+      "description": "Stardew Valley es un juego de simulación donde el jugador hereda una granja y debe cuidarla. Permite cultivar, criar animales, pescar, explorar minas y relacionarse con los habitantes del pueblo.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg"
+    },
+    {
+      "id": 5,
+      "title": "The Sims 4",
+      "genre": "Simulación",
+      "platform": "PC, PlayStation 4, Xbox One",
+      "year": 2014,
+      "developer": "Maxis",
+      "description": "The Sims 4 es un juego de simulación de vida donde el jugador crea personajes, construye casas y controla la vida diaria de sus Sims. Permite personalizar familias, hogares, relaciones y profesiones.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1222670/header.jpg"
+    },
+    {
+      "id": 6,
+      "title": "The Elder Scrolls V: Skyrim",
+      "genre": "RPG / Mundo abierto",
+      "platform": "PC, PlayStation, Xbox, Nintendo Switch",
+      "year": 2011,
+      "developer": "Bethesda Game Studios",
+      "description": "The Elder Scrolls V: Skyrim es un RPG de mundo abierto ambientado en una tierra de fantasía. El jugador puede crear su personaje, explorar libremente, completar misiones, aprender habilidades, luchar contra dragones y tomar decisiones durante la aventura.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/72850/header.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Disco Elysium",
+      "genre": "RPG",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox",
+      "year": 2019,
+      "developer": "ZA/UM",
+      "description": "Disco Elysium es un RPG narrativo donde el jugador interpreta a un detective que investiga un asesinato mientras reconstruye su propia identidad. Destaca por sus diálogos, decisiones y sistema de habilidades.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/632470/header.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Persona 5 Royal",
+      "genre": "JRPG",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox",
+      "year": 2019,
+      "developer": "Atlus",
+      "description": "Persona 5 Royal es un JRPG donde un grupo de estudiantes forma los Phantom Thieves para cambiar el corazón de personas corruptas. Combina vida escolar, exploración de mazmorras y combates por turnos.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1687950/header.jpg"
+    },
+    {
+      "id": 9,
+      "title": "BioShock",
+      "genre": "Shooter / Aventura",
+      "platform": "PC, PlayStation, Xbox, Nintendo Switch",
+      "year": 2007,
+      "developer": "2K Boston",
+      "description": "BioShock es un shooter narrativo ambientado en la ciudad submarina de Rapture. El jugador explora sus instalaciones, usa armas y poderes especiales, y descubre los secretos de una sociedad fallida.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/409710/header.jpg"
+    },
+    {
+      "id": 10,
+      "title": "The Witcher 3: Wild Hunt",
+      "genre": "RPG / Aventura",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox",
+      "year": 2015,
+      "developer": "CD Projekt Red",
+      "description": "The Witcher 3: Wild Hunt es un RPG de mundo abierto donde el jugador controla a Geralt de Rivia, un cazador de monstruos que busca a Ciri mientras explora reinos llenos de misiones, decisiones y criaturas fantásticas.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/292030/header.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Assassin's Creed Odyssey",
+      "genre": "Acción / RPG",
+      "platform": "PC, PlayStation 4, Xbox One, Nintendo Switch",
+      "year": 2018,
+      "developer": "Ubisoft Quebec",
+      "description": "Assassin's Creed Odyssey es una aventura de acción y rol ambientada en la Antigua Grecia. El jugador puede explorar un gran mundo abierto, tomar decisiones, combatir en tierra y mar, y vivir una historia relacionada con la guerra entre Atenas y Esparta.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/812140/header.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Cuphead",
+      "genre": "Plataformas / Run and gun",
+      "platform": "PC, Nintendo Switch, PlayStation 4, Xbox One",
+      "year": 2017,
+      "developer": "Studio MDHR",
+      "description": "Cuphead es un juego de acción y plataformas inspirado en los dibujos animados clásicos. El jugador debe superar niveles y enfrentarse a jefes difíciles usando disparos, saltos y reflejos rápidos.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/268910/header.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Split Fiction",
+      "genre": "Cooperativo / Aventura",
+      "platform": "PC, PlayStation 5, Xbox Series X|S, Nintendo Switch 2",
+      "year": 2025,
+      "developer": "Hazelight Studios",
+      "description": "Split Fiction es una aventura cooperativa donde dos escritoras quedan atrapadas en mundos de ciencia ficción y fantasía. El juego combina plataformas, acción y cooperación entre dos jugadores.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2001120/header.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Phoenix Wright: Ace Attorney Trilogy",
+      "genre": "Novela visual / Aventura",
+      "platform": "PC, Nintendo Switch, PlayStation 4, Xbox One",
+      "year": 2019,
+      "developer": "Capcom",
+      "description": "Phoenix Wright: Ace Attorney Trilogy es una aventura narrativa donde el jugador actúa como abogado defensor. Se investigan casos, se buscan pruebas y se interroga a testigos durante los juicios.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/787480/header.jpg"
+    },
+    {
+      "id": 15,
+      "title": "It Takes Two",
+      "genre": "Cooperativo / Aventura",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox",
+      "year": 2021,
+      "developer": "Hazelight Studios",
+      "description": "It Takes Two es un juego cooperativo en el que dos jugadores controlan a una pareja convertida en muñecos. Cada nivel presenta mecánicas diferentes y obliga a colaborar para avanzar.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1426210/header.jpg"
+    },
+    {
+      "id": 16,
+      "title": "Baba Is You",
+      "genre": "Puzles / Lógica",
+      "platform": "PC, Nintendo Switch, móvil",
+      "year": 2019,
+      "developer": "Hempuli Oy",
+      "description": "Baba Is You es un juego de puzles donde las reglas aparecen como bloques dentro del nivel. El jugador puede mover esas reglas para cambiar cómo funciona el escenario y resolver cada puzzle.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/736260/header.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Dispatch",
+      "genre": "Aventura narrativa",
+      "platform": "PC, PlayStation 5, Nintendo Switch",
+      "year": 2025,
+      "developer": "AdHoc Studio",
+      "description": "Dispatch es una aventura narrativa de comedia superheroica donde el jugador toma decisiones como operador de un equipo de antiguos villanos convertidos en héroes. La historia avanza según las elecciones del jugador.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2592160/header.jpg"
+    },
+    {
+      "id": 18,
+      "title": "Tomb Raider",
+      "genre": "Acción / Aventura",
+      "platform": "PC, PlayStation, Xbox",
+      "year": 2013,
+      "developer": "Crystal Dynamics",
+      "description": "Tomb Raider es una aventura de acción que muestra los primeros pasos de Lara Croft como exploradora. El jugador debe sobrevivir en una isla peligrosa, resolver puzzles, explorar y combatir enemigos.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/203160/header.jpg"
+    },
+    {
+      "id": 19,
+      "title": "Rayman Legends",
+      "genre": "Plataformas",
+      "platform": "PC, Nintendo Switch, PlayStation, Xbox, Wii U",
+      "year": 2013,
+      "developer": "Ubisoft Montpellier",
+      "description": "Rayman Legends es un juego de plataformas colorido y rápido donde el jugador supera niveles llenos de saltos, enemigos, secretos y fases musicales. Puede jugarse solo o en cooperativo.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/242550/header.jpg"
+    },
+    {
+      "id": 20,
+      "title": "Papers, Please",
+      "genre": "Simulación / Puzles",
+      "platform": "PC, iOS, Android, PlayStation Vita",
+      "year": 2013,
+      "developer": "Lucas Pope",
+      "description": "Papers, Please es un juego de simulación donde el jugador trabaja como inspector de inmigración. Debe revisar documentos, detectar errores y decidir quién puede entrar al país.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/239030/header.jpg"
+    },
+    {
+      "id": 21,
+      "title": "Fallout: New Vegas",
+      "genre": "RPG / Mundo abierto",
+      "platform": "PC, PlayStation 3, Xbox 360",
+      "year": 2010,
+      "developer": "Obsidian Entertainment",
+      "description": "Fallout: New Vegas es un RPG de mundo abierto ambientado en un desierto postapocalíptico. El jugador puede explorar, completar misiones, tomar decisiones y relacionarse con distintas facciones.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/22380/header.jpg"
+    },
+    {
+      "id": 22,
+      "title": "Overcooked! 2",
+      "genre": "Cooperativo / Cocina",
+      "platform": "PC, Nintendo Switch, PlayStation 4, Xbox One",
+      "year": 2018,
+      "developer": "Ghost Town Games",
+      "description": "Overcooked! 2 es un juego cooperativo donde los jugadores deben preparar y servir platos en cocinas caóticas. La coordinación y la comunicación son necesarias para superar cada nivel.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/728880/header.jpg"
+    },
+    {
+      "id": 23,
+      "title": "LEGO City Undercover",
+      "genre": "Acción / Mundo abierto",
+      "platform": "PC, Nintendo Switch, PlayStation 4, Xbox One, Wii U",
+      "year": 2017,
+      "developer": "TT Fusion",
+      "description": "LEGO City Undercover es una aventura de mundo abierto donde el jugador controla a Chase McCain, un policía encubierto que debe detener a criminales y explorar una ciudad llena de humor y misiones.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/578330/header.jpg"
+    },
+    {
+      "id": 24,
+      "title": "Mafia: Definitive Edition",
+      "genre": "Acción / Aventura",
+      "platform": "PC, PlayStation 4, Xbox One",
+      "year": 2020,
+      "developer": "Hangar 13",
+      "description": "Mafia: Definitive Edition es una aventura de acción ambientada en una ciudad inspirada en los años 30. El jugador sigue la historia de Tommy Angelo dentro del mundo del crimen organizado.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1030840/header.jpg"
+    },
+    {
+      "id": 25,
+      "title": "Life is Strange",
+      "genre": "Aventura narrativa",
+      "platform": "PC, PlayStation, Xbox, móvil, Nintendo Switch",
+      "year": 2015,
+      "developer": "Dontnod Entertainment",
+      "description": "Life is Strange es una aventura narrativa donde Max Caulfield descubre que puede rebobinar el tiempo. Las decisiones del jugador afectan a la historia, las relaciones y el desarrollo de los acontecimientos.",
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/319630/header.jpg"
+    }
+  ]
+}
