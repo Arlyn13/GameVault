@@ -55,6 +55,54 @@ public class GameRepository implements GameRepositoryContract {
     }
 
     @Override
+    public void registerUser(
+            final UserItem user, final RegisterUserCallback callback) {
+
+        AsyncTask.execute(() -> {
+
+            boolean error = false;
+            boolean duplicated = false;
+            UserItem registeredUser = null;
+
+            try {
+
+                UserItem existingUser = database.userDao().loadUserByEmail(user.email);
+
+                if (existingUser != null) {
+                    duplicated = true;
+
+                } else {
+                    long userId = database.userDao().insertUser(user);
+                    user.id = (int) userId;
+                    registeredUser = user;
+                }
+
+            } catch (Exception exception) {
+                Log.e(TAG, "error: " + exception);
+                error = true;
+            }
+
+            if (callback != null) {
+                callback.onUserRegistered(registeredUser, duplicated, error);
+            }
+        });
+    }
+
+    @Override
+    public void loginUser(
+            final String email, final String password, final LoginUserCallback callback) {
+
+        AsyncTask.execute(() -> {
+
+            UserItem user = database.userDao().login(email, password);
+
+            if (callback != null) {
+                callback.onUserLogged(user);
+            }
+        });
+    }
+
+    @Override
     public void loadGames(final FetchGamesDataCallback callback) {
 
         AsyncTask.execute(() -> {

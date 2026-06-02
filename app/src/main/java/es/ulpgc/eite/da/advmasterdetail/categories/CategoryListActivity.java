@@ -12,9 +12,8 @@ import es.ulpgc.eite.da.advmasterdetail.R;
 import es.ulpgc.eite.da.advmasterdetail.data.CategoryItem;
 import es.ulpgc.eite.da.advmasterdetail.products.ProductListActivity;
 
-
 public class CategoryListActivity
-    extends AppCompatActivity implements CategoryListContract.View {
+        extends AppCompatActivity implements CategoryListContract.View {
 
   public static String TAG = "AdvMasterDetail.CategoryListActivity";
 
@@ -22,23 +21,20 @@ public class CategoryListActivity
 
   private CategoryListAdapter listAdapter;
 
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_category_list);
     setTitle(R.string.title_category_list);
 
-    // do the setup
     CategoryListScreen.configure(this);
 
-    // do some work
     initCategoryListContainer();
 
-    if(savedInstanceState == null) {
+    if (savedInstanceState == null) {
       presenter.onCreateCalled();
 
-    }else{
+    } else {
       presenter.onRecreateCalled();
     }
   }
@@ -47,7 +43,6 @@ public class CategoryListActivity
   protected void onResume() {
     super.onResume();
 
-    // do some work
     presenter.fetchCategoryListData();
   }
 
@@ -79,18 +74,12 @@ public class CategoryListActivity
   public void displayCategoryListData(final CategoryListViewModel viewModel) {
     Log.e(TAG, "displayCategoryListData()");
 
-    runOnUiThread(() -> {
-
-      // deal with the data
-      listAdapter.setItems(viewModel.categories);
-    });
-
+    runOnUiThread(() -> listAdapter.setItems(viewModel.categories));
   }
 
   @Override
   public void navigateToProductListScreen() {
     Intent intent = new Intent(this, ProductListActivity.class);
-    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
   }
 
@@ -98,5 +87,4 @@ public class CategoryListActivity
   public void injectPresenter(CategoryListContract.Presenter presenter) {
     this.presenter = presenter;
   }
-
 }

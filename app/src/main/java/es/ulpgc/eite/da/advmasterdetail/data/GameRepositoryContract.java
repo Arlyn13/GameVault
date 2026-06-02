@@ -16,9 +16,21 @@ public interface GameRepositoryContract {
         void setGame(GameItem game);
     }
 
+    interface RegisterUserCallback {
+        void onUserRegistered(UserItem user, boolean duplicated, boolean error);
+    }
+
+    interface LoginUserCallback {
+        void onUserLogged(UserItem user);
+    }
+
     void loadGames(FetchGamesDataCallback callback);
 
     void getGameList(GetGameListCallback callback);
 
     void getGame(int id, GetGameCallback callback);
+
+    void registerUser(UserItem user, RegisterUserCallback callback);
+
+    void loginUser(String email, String password, LoginUserCallback callback);
 }
