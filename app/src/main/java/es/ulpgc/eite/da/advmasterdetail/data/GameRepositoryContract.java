@@ -26,9 +26,9 @@ public interface GameRepositoryContract {
 
     void loadGames(FetchGamesDataCallback callback);
 
-    void getGameList(GetGameListCallback callback);
+    void getGameList(int userId, GetGameListCallback callback);
 
-    void getGame(int id, GetGameCallback callback);
+    void getGame(int id, int userId, GetGameCallback callback);
 
     void registerUser(UserItem user, RegisterUserCallback callback);
 

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.da.advmasterdetail.R;
-import es.ulpgc.eite.da.advmasterdetail.products.ProductListActivity;
+import es.ulpgc.eite.da.advmasterdetail.games.GameListActivity;
 
 public class RegisterActivity
         extends AppCompatActivity implements RegisterContract.View {
@@ -99,7 +99,7 @@ public class RegisterActivity
 
     @Override
     public void navigateToProductListScreen(boolean loggedIn) {
-        Intent intent = new Intent(this, ProductListActivity.class);
+        Intent intent = new Intent(this, GameListActivity.class);
         intent.putExtra("logged_in", loggedIn);
         startActivity(intent);
     }

@@ -124,21 +124,49 @@ public class GameRepository implements GameRepositoryContract {
     }
 
     @Override
-    public void getGameList(final GetGameListCallback callback) {
+    public void getGameList(final int userId, final GetGameListCallback callback) {
 
         AsyncTask.execute(() -> {
+
+            List<GameItem> games = getGameDao().loadGames();
+
+            for (GameItem game : games) {
+                game.totalFavorites = database.favoriteGameDao().countLikes(game.id);
+
+                if (userId != -1) {
+                    game.favorite =
+                            database.favoriteGameDao().isFavorite(userId, game.id) > 0;
+                } else {
+                    game.favorite = false;
+                }
+            }
+
             if (callback != null) {
-                callback.setGameList(getGameDao().loadGames());
+                callback.setGameList(games);
             }
         });
     }
 
     @Override
-    public void getGame(final int id, final GetGameCallback callback) {
+    public void getGame(final int id, final int userId, final GetGameCallback callback) {
 
         AsyncTask.execute(() -> {
+
+            GameItem game = getGameDao().loadGame(id);
+
+            if (game != null) {
+                game.totalFavorites = database.favoriteGameDao().countLikes(game.id);
+
+                if (userId != -1) {
+                    game.favorite =
+                            database.favoriteGameDao().isFavorite(userId, game.id) > 0;
+                } else {
+                    game.favorite = false;
+                }
+            }
+
             if (callback != null) {
-                callback.setGame(getGameDao().loadGame(id));
+                callback.setGame(game);
             }
         });
     }

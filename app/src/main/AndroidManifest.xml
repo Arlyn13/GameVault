@@ -44,6 +44,14 @@
             android:name=".product.ProductDetailActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".games.GameListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".games.GameDetailActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
