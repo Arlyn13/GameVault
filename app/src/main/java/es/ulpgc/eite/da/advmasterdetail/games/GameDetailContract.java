@@ -27,17 +27,9 @@ public interface GameDetailContract {
 
         void backButtonClicked();
 
-        void favoriteButtonClicked();
     }
 
     interface Model {
         int getLoggedUserId();
-
-        void updateFavorite(
-                int userId,
-                int gameId,
-                boolean favorite,
-                es.ulpgc.eite.da.advmasterdetail.data.GameRepositoryContract.GetGameCallback callback
-        );
     }
 }

@@ -17,36 +17,6 @@ public class GameDetailPresenter implements GameDetailContract.Presenter {
     }
 
     @Override
-    public void favoriteButtonClicked() {
-
-        if (state == null || state.game == null) {
-            return;
-        }
-
-        int userId = model.getLoggedUserId();
-
-        if (userId == -1) {
-            return;
-        }
-
-        boolean newFavoriteState = !state.game.favorite;
-
-        model.updateFavorite(
-                userId,
-                state.game.id,
-                newFavoriteState,
-                game -> {
-                    state.game = game;
-                    state.loggedIn = true;
-
-                    mediator.setGame(game);
-
-                    view.get().displayGameDetailData(state);
-                }
-        );
-    }
-
-    @Override
     public void onCreateCalled() {
         state = new GameDetailState();
 

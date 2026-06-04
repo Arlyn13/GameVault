@@ -29,6 +29,8 @@ public interface GameListContract {
         void fetchGameListData();
 
         void selectedGameData(GameItem item);
+
+        void favoriteButtonClicked(GameItem item);
     }
 
     interface Model {
@@ -39,6 +41,12 @@ public interface GameListContract {
         void fetchFavoriteGameListData(
                 int userId,
                 GameRepositoryContract.GetGameListCallback callback);
+
+        void updateFavorite(
+                int userId,
+                int gameId,
+                boolean favorite,
+                GameRepositoryContract.GetGameCallback callback);
 
         int getLoggedUserId();
     }

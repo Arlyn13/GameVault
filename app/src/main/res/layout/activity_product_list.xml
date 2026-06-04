@@ -29,7 +29,7 @@
             android:id="@+id/favorites_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="♥"
+            android:text="♥︎"
             android:textColor="@color/gv_white"
             android:textSize="24sp"
             android:textStyle="bold" />

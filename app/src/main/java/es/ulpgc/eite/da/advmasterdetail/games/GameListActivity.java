@@ -46,10 +46,16 @@ public class GameListActivity
         titleView = findViewById(R.id.product_list_title);
         favoritesButton = findViewById(R.id.favorites_button);
 
-        listAdapter = new GameListAdapter(view -> {
-            GameItem item = (GameItem) view.getTag();
-            presenter.selectedGameData(item);
-        });
+        listAdapter = new GameListAdapter(
+                view -> {
+                    GameItem item = (GameItem) view.getTag();
+                    presenter.selectedGameData(item);
+                },
+                view -> {
+                    GameItem item = (GameItem) view.getTag();
+                    presenter.favoriteButtonClicked(item);
+                }
+        );
 
         favoritesButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, FavoriteGameListActivity.class);
@@ -97,6 +103,7 @@ public class GameListActivity
                 }
             }
 
+            listAdapter.setCanFavorite(viewModel.loggedIn);
             listAdapter.setItems(viewModel.games);
         });
     }

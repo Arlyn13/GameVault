@@ -46,10 +46,16 @@ public class FavoriteGameListActivity
         titleView.setText("Favoritos");
         favoritesButton.setVisibility(View.GONE);
 
-        listAdapter = new GameListAdapter(view -> {
-            GameItem item = (GameItem) view.getTag();
-            presenter.selectedGameData(item);
-        });
+        listAdapter = new GameListAdapter(
+                view -> {
+                    GameItem item = (GameItem) view.getTag();
+                    presenter.selectedGameData(item);
+                },
+                view -> {
+                    GameItem item = (GameItem) view.getTag();
+                    presenter.favoriteButtonClicked(item);
+                }
+        );
 
         RecyclerView recyclerView = findViewById(R.id.product_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -76,6 +82,8 @@ public class FavoriteGameListActivity
         runOnUiThread(() -> {
             titleView.setText("Favoritos");
             favoritesButton.setVisibility(View.GONE);
+
+            listAdapter.setCanFavorite(true);
             listAdapter.setItems(viewModel.games);
         });
     }

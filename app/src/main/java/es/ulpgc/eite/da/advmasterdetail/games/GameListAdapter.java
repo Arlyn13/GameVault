@@ -20,12 +20,25 @@ import es.ulpgc.eite.da.advmasterdetail.data.GameItem;
 public class GameListAdapter
         extends RecyclerView.Adapter<GameListAdapter.ViewHolder> {
 
-    private List<GameItem> itemList;
-    private final View.OnClickListener clickListener;
+    private static final String HEART = "\u2665\uFE0E";
 
-    public GameListAdapter(View.OnClickListener listener) {
+    private List<GameItem> itemList;
+    private final View.OnClickListener itemClickListener;
+    private final View.OnClickListener favoriteClickListener;
+
+    private boolean canFavorite = false;
+
+    public GameListAdapter(
+            View.OnClickListener itemListener,
+            View.OnClickListener favoriteListener) {
+
         itemList = new ArrayList<>();
-        clickListener = listener;
+        itemClickListener = itemListener;
+        favoriteClickListener = favoriteListener;
+    }
+
+    public void setCanFavorite(boolean canFavorite) {
+        this.canFavorite = canFavorite;
     }
 
     public void setItems(List<GameItem> items) {
@@ -57,17 +70,36 @@ public class GameListAdapter
         GameItem item = itemList.get(position);
 
         holder.itemView.setTag(item);
-        holder.itemView.setOnClickListener(clickListener);
+        holder.likesView.setTag(item);
+
+        holder.itemView.setOnClickListener(itemClickListener);
 
         holder.nameView.setText(item.title);
         holder.genreView.setText(item.genre);
-        holder.likesView.setText("♥ " + item.totalFavorites);
+        holder.likesView.setText(HEART + " " + item.totalFavorites);
 
-        int color = item.favorite
-                ? ContextCompat.getColor(holder.itemView.getContext(), R.color.gv_red)
-                : ContextCompat.getColor(holder.itemView.getContext(), R.color.gv_text_gray);
+        if (canFavorite) {
+            holder.likesView.setOnClickListener(favoriteClickListener);
+            holder.likesView.setClickable(true);
 
-        holder.likesView.setTextColor(color);
+            if (item.favorite) {
+                holder.likesView.setTextColor(
+                        ContextCompat.getColor(holder.itemView.getContext(), R.color.gv_red)
+                );
+            } else {
+                holder.likesView.setTextColor(
+                        ContextCompat.getColor(holder.itemView.getContext(), R.color.gv_text_gray)
+                );
+            }
+
+        } else {
+            holder.likesView.setOnClickListener(null);
+            holder.likesView.setClickable(false);
+
+            holder.likesView.setTextColor(
+                    ContextCompat.getColor(holder.itemView.getContext(), R.color.gv_text_gray)
+            );
+        }
 
         Glide.with(holder.itemView.getContext())
                 .load(item.image)

@@ -67,6 +67,25 @@ public class GameListPresenter implements GameListContract.Presenter {
     }
 
     @Override
+    public void favoriteButtonClicked(GameItem item) {
+
+        int userId = model.getLoggedUserId();
+
+        if (userId == -1) {
+            return;
+        }
+
+        boolean newFavoriteState = !item.favorite;
+
+        model.updateFavorite(
+                userId,
+                item.id,
+                newFavoriteState,
+                game -> fetchGameListData()
+        );
+    }
+
+    @Override
     public void injectView(WeakReference<GameListContract.View> view) {
         this.view = view;
     }

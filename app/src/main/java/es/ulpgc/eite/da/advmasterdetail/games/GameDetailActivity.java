@@ -1,12 +1,10 @@
 package es.ulpgc.eite.da.advmasterdetail.games;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 
@@ -19,7 +17,6 @@ public class GameDetailActivity
     private GameDetailContract.Presenter presenter;
 
     private TextView backButton;
-    private TextView favoriteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +29,6 @@ public class GameDetailActivity
 
         if (savedInstanceState == null) {
             presenter.onCreateCalled();
-
         } else {
             presenter.onRecreateCalled();
         }
@@ -40,23 +36,18 @@ public class GameDetailActivity
 
     private void initView() {
         backButton = findViewById(R.id.back_button);
-        favoriteButton = findViewById(R.id.favorite_button);
-
         backButton.setOnClickListener(view -> presenter.backButtonClicked());
-        favoriteButton.setOnClickListener(view -> presenter.favoriteButtonClicked());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
         presenter.fetchGameDetailData();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         presenter.onPauseCalled();
     }
 
@@ -75,19 +66,19 @@ public class GameDetailActivity
                     .setText(game.title);
 
             ((TextView) findViewById(R.id.product_genre))
-                    .setText("GÉNERO\n" + game.genre);
+                    .setText(game.genre);
 
             ((TextView) findViewById(R.id.product_platform))
-                    .setText("PLATAFORMA\n" + game.platform);
+                    .setText(game.platform);
 
             ((TextView) findViewById(R.id.product_year))
-                    .setText("AÑO DE LANZAMIENTO\n" + game.year);
+                    .setText(String.valueOf(game.year));
 
             ((TextView) findViewById(R.id.product_developer))
-                    .setText("DESARROLLADORA\n" + game.developer);
+                    .setText(game.developer);
 
             ((TextView) findViewById(R.id.product_likes))
-                    .setText("ME GUSTA\n♥ " + game.totalFavorites);
+                    .setText("♥\uFE0E " + game.totalFavorites);
 
             ((TextView) findViewById(R.id.product_detail))
                     .setText(game.description);
@@ -95,26 +86,6 @@ public class GameDetailActivity
             Glide.with(this)
                     .load(game.image)
                     .into((ImageView) findViewById(R.id.product_image));
-
-            if (viewModel.loggedIn) {
-                favoriteButton.setVisibility(View.VISIBLE);
-
-                if (game.favorite) {
-                    favoriteButton.setText("♥");
-                    favoriteButton.setTextColor(
-                            ContextCompat.getColor(this, R.color.gv_red)
-                    );
-
-                } else {
-                    favoriteButton.setText("♡");
-                    favoriteButton.setTextColor(
-                            ContextCompat.getColor(this, R.color.gv_white)
-                    );
-                }
-
-            } else {
-                favoriteButton.setVisibility(View.GONE);
-            }
         });
     }
 
