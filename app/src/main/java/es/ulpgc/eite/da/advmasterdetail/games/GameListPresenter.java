@@ -42,10 +42,22 @@ public class GameListPresenter implements GameListContract.Presenter {
 
         int userId = model.getLoggedUserId();
 
-        model.fetchGameListData(userId, games -> {
-            state.games = games;
-            view.get().displayGameListData(state);
-        });
+        state.loggedIn = userId != -1;
+
+        if (state.favoritesMode) {
+
+            model.fetchFavoriteGameListData(userId, games -> {
+                state.games = games;
+                view.get().displayGameListData(state);
+            });
+
+        } else {
+
+            model.fetchGameListData(userId, games -> {
+                state.games = games;
+                view.get().displayGameListData(state);
+            });
+        }
     }
 
     @Override

@@ -36,6 +36,10 @@ public interface GameListContract {
                 int userId,
                 GameRepositoryContract.GetGameListCallback callback);
 
+        void fetchFavoriteGameListData(
+                int userId,
+                GameRepositoryContract.GetGameListCallback callback);
+
         int getLoggedUserId();
     }
 }

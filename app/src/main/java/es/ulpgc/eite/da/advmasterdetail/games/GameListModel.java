@@ -29,6 +29,18 @@ public class GameListModel implements GameListContract.Model {
     }
 
     @Override
+    public void fetchFavoriteGameListData(
+            int userId,
+            GameRepositoryContract.GetGameListCallback callback) {
+
+        repository.loadGames(error -> {
+            if (!error) {
+                repository.getFavoriteGameList(userId, callback);
+            }
+        });
+    }
+
+    @Override
     public int getLoggedUserId() {
         if (sessionManager.isLoggedIn()) {
             return sessionManager.getUserId();
@@ -36,4 +48,5 @@ public class GameListModel implements GameListContract.Model {
 
         return -1;
     }
+
 }

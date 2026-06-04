@@ -131,14 +131,7 @@ public class GameRepository implements GameRepositoryContract {
             List<GameItem> games = getGameDao().loadGames();
 
             for (GameItem game : games) {
-                game.totalFavorites = database.favoriteGameDao().countLikes(game.id);
-
-                if (userId != -1) {
-                    game.favorite =
-                            database.favoriteGameDao().isFavorite(userId, game.id) > 0;
-                } else {
-                    game.favorite = false;
-                }
+                fillGameExtraData(game, userId);
             }
 
             if (callback != null) {
@@ -148,27 +141,89 @@ public class GameRepository implements GameRepositoryContract {
     }
 
     @Override
-    public void getGame(final int id, final int userId, final GetGameCallback callback) {
+    public void getGame(
+            final int id,
+            final int userId,
+            final GetGameCallback callback) {
 
         AsyncTask.execute(() -> {
 
             GameItem game = getGameDao().loadGame(id);
 
             if (game != null) {
-                game.totalFavorites = database.favoriteGameDao().countLikes(game.id);
-
-                if (userId != -1) {
-                    game.favorite =
-                            database.favoriteGameDao().isFavorite(userId, game.id) > 0;
-                } else {
-                    game.favorite = false;
-                }
+                fillGameExtraData(game, userId);
             }
 
             if (callback != null) {
                 callback.setGame(game);
             }
         });
+    }
+
+    @Override
+    public void getFavoriteGameList(
+            final int userId,
+            final GetGameListCallback callback) {
+
+        AsyncTask.execute(() -> {
+
+            List<GameItem> games =
+                    database.favoriteGameDao().loadFavoriteGames(userId);
+
+            for (GameItem game : games) {
+                fillGameExtraData(game, userId);
+            }
+
+            if (callback != null) {
+                callback.setGameList(games);
+            }
+        });
+    }
+
+    @Override
+    public void updateFavorite(
+            final int userId,
+            final int gameId,
+            final boolean favorite,
+            final GetGameCallback callback) {
+
+        AsyncTask.execute(() -> {
+
+            if (favorite) {
+                FavoriteGameItem item = new FavoriteGameItem();
+                item.userId = userId;
+                item.gameId = gameId;
+
+                database.favoriteGameDao().insertFavorite(item);
+
+            } else {
+                database.favoriteGameDao().deleteFavorite(userId, gameId);
+            }
+
+            GameItem game = getGameDao().loadGame(gameId);
+
+            if (game != null) {
+                fillGameExtraData(game, userId);
+            }
+
+            if (callback != null) {
+                callback.setGame(game);
+            }
+        });
+    }
+
+    private void fillGameExtraData(GameItem game, int userId) {
+
+        game.totalFavorites =
+                database.favoriteGameDao().countLikes(game.id);
+
+        if (userId != -1) {
+            game.favorite =
+                    database.favoriteGameDao().isFavorite(userId, game.id) > 0;
+
+        } else {
+            game.favorite = false;
+        }
     }
 
     private GameDao getGameDao() {

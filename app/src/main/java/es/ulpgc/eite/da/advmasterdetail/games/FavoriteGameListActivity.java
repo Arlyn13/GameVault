@@ -2,6 +2,7 @@ package es.ulpgc.eite.da.advmasterdetail.games;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,9 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import es.ulpgc.eite.da.advmasterdetail.R;
 import es.ulpgc.eite.da.advmasterdetail.data.GameItem;
-import android.view.View;
 
-public class GameListActivity
+public class FavoriteGameListActivity
         extends AppCompatActivity implements GameListContract.View {
 
     private GameListContract.Presenter presenter;
@@ -30,11 +30,8 @@ public class GameListActivity
 
         initGameListContainer();
 
-        boolean loggedIn = getIntent().getBooleanExtra("logged_in", false);
-        boolean favoritesMode = getIntent().getBooleanExtra("favorites_mode", false);
-
         if (savedInstanceState == null) {
-            presenter.onCreateCalled(loggedIn, favoritesMode);
+            presenter.onCreateCalled(true, true);
 
         } else {
             presenter.onRecreateCalled();
@@ -46,22 +43,17 @@ public class GameListActivity
         titleView = findViewById(R.id.product_list_title);
         favoritesButton = findViewById(R.id.favorites_button);
 
+        titleView.setText("Favoritos");
+        favoritesButton.setVisibility(View.GONE);
+
         listAdapter = new GameListAdapter(view -> {
             GameItem item = (GameItem) view.getTag();
             presenter.selectedGameData(item);
         });
 
-        favoritesButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this, FavoriteGameListActivity.class);
-            intent.putExtra("logged_in", true);
-            intent.putExtra("favorites_mode", true);
-            startActivity(intent);
-        });
-
         RecyclerView recyclerView = findViewById(R.id.product_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
-
     }
 
     @Override
@@ -82,21 +74,8 @@ public class GameListActivity
     public void displayGameListData(GameListViewModel viewModel) {
 
         runOnUiThread(() -> {
-
-            if (viewModel.favoritesMode) {
-                titleView.setText("Favoritos");
-                favoritesButton.setVisibility(View.GONE);
-
-            } else {
-                titleView.setText("Videojuegos");
-
-                if (viewModel.loggedIn) {
-                    favoritesButton.setVisibility(View.VISIBLE);
-                } else {
-                    favoritesButton.setVisibility(View.GONE);
-                }
-            }
-
+            titleView.setText("Favoritos");
+            favoritesButton.setVisibility(View.GONE);
             listAdapter.setItems(viewModel.games);
         });
     }

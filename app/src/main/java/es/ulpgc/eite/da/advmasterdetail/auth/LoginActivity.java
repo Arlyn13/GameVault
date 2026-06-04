@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.eite.da.advmasterdetail.R;
-import es.ulpgc.eite.da.advmasterdetail.products.ProductListActivity;
+import es.ulpgc.eite.da.advmasterdetail.games.GameListActivity;
 
 public class LoginActivity
         extends AppCompatActivity implements LoginContract.View {
@@ -32,14 +32,12 @@ public class LoginActivity
 
         if (savedInstanceState == null) {
             presenter.onCreateCalled();
-
         } else {
             presenter.onRecreateCalled();
         }
     }
 
     private void initView() {
-
         emailEditText = findViewById(R.id.email_edit_text);
         passwordEditText = findViewById(R.id.password_edit_text);
 
@@ -70,7 +68,6 @@ public class LoginActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         presenter.onDestroyCalled();
     }
 
@@ -89,15 +86,19 @@ public class LoginActivity
 
     @Override
     public void navigateToRegisterScreen() {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        runOnUiThread(() -> {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
     public void navigateToProductListScreen(boolean loggedIn) {
-        Intent intent = new Intent(this, ProductListActivity.class);
-        intent.putExtra("logged_in", loggedIn);
-        startActivity(intent);
+        runOnUiThread(() -> {
+            Intent intent = new Intent(this, GameListActivity.class);
+            intent.putExtra("logged_in", loggedIn);
+            startActivity(intent);
+        });
     }
 
     @Override

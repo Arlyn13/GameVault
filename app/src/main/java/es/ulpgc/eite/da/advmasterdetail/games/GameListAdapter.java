@@ -29,7 +29,12 @@ public class GameListAdapter
     }
 
     public void setItems(List<GameItem> items) {
-        itemList = items;
+        if (items == null) {
+            itemList = new ArrayList<>();
+        } else {
+            itemList = items;
+        }
+
         notifyDataSetChanged();
     }
 

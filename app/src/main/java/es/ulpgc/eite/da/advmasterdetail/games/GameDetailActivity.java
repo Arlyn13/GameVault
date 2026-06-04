@@ -43,6 +43,7 @@ public class GameDetailActivity
         favoriteButton = findViewById(R.id.favorite_button);
 
         backButton.setOnClickListener(view -> presenter.backButtonClicked());
+        favoriteButton.setOnClickListener(view -> presenter.favoriteButtonClicked());
     }
 
     @Override
@@ -100,10 +101,15 @@ public class GameDetailActivity
 
                 if (game.favorite) {
                     favoriteButton.setText("♥");
-                    favoriteButton.setTextColor(ContextCompat.getColor(this, R.color.gv_red));
+                    favoriteButton.setTextColor(
+                            ContextCompat.getColor(this, R.color.gv_red)
+                    );
+
                 } else {
                     favoriteButton.setText("♡");
-                    favoriteButton.setTextColor(ContextCompat.getColor(this, R.color.gv_white));
+                    favoriteButton.setTextColor(
+                            ContextCompat.getColor(this, R.color.gv_white)
+                    );
                 }
 
             } else {

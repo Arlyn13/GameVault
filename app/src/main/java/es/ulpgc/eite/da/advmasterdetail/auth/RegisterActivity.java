@@ -93,15 +93,19 @@ public class RegisterActivity
 
     @Override
     public void navigateToLoginScreen() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        runOnUiThread(() -> {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
     public void navigateToProductListScreen(boolean loggedIn) {
-        Intent intent = new Intent(this, GameListActivity.class);
-        intent.putExtra("logged_in", loggedIn);
-        startActivity(intent);
+        runOnUiThread(() -> {
+            Intent intent = new Intent(this, GameListActivity.class);
+            intent.putExtra("logged_in", loggedIn);
+            startActivity(intent);
+        });
     }
 
     @Override

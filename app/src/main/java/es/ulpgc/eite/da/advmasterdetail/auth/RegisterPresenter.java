@@ -89,11 +89,8 @@ public class RegisterPresenter implements RegisterContract.Presenter {
                 return;
             }
 
-            model.saveLoggedUser(registeredUser);
-            mediator.setUser(registeredUser);
-
             view.get().showMessage("Usuario registrado correctamente");
-            view.get().navigateToProductListScreen(true);
+            view.get().navigateToLoginScreen();
         });
     }
 

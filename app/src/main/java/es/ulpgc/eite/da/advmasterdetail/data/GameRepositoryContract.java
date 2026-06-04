@@ -28,7 +28,16 @@ public interface GameRepositoryContract {
 
     void getGameList(int userId, GetGameListCallback callback);
 
+    void getFavoriteGameList(int userId, GetGameListCallback callback);
+
     void getGame(int id, int userId, GetGameCallback callback);
+
+    void updateFavorite(
+            int userId,
+            int gameId,
+            boolean favorite,
+            GetGameCallback callback
+    );
 
     void registerUser(UserItem user, RegisterUserCallback callback);
 

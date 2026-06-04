@@ -33,23 +33,15 @@
             android:exported="false" />
 
         <activity
-            android:name=".categories.CategoryListActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".products.ProductListActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".product.ProductDetailActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".games.GameListActivity"
             android:exported="false" />
 
         <activity
             android:name=".games.GameDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".games.FavoriteGameListActivity"
             android:exported="false" />
 
     </application>
