@@ -1,12 +1,18 @@
 package es.ulpgc.eite.da.advmasterdetail.games;
 
 import es.ulpgc.eite.da.advmasterdetail.app.SessionManager;
+import es.ulpgc.eite.da.advmasterdetail.data.GameRepositoryContract;
 
 public class GameDetailModel implements GameDetailContract.Model {
 
+    private GameRepositoryContract repository;
     private SessionManager sessionManager;
 
-    public GameDetailModel(SessionManager sessionManager) {
+    public GameDetailModel(
+            GameRepositoryContract repository,
+            SessionManager sessionManager) {
+
+        this.repository = repository;
         this.sessionManager = sessionManager;
     }
 
@@ -17,5 +23,15 @@ public class GameDetailModel implements GameDetailContract.Model {
         }
 
         return -1;
+    }
+
+    @Override
+    public void updateFavorite(
+            int userId,
+            int gameId,
+            boolean favorite,
+            GameRepositoryContract.GetGameCallback callback) {
+
+        repository.updateFavorite(userId, gameId, favorite, callback);
     }
 }

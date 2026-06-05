@@ -44,6 +44,17 @@ public class GameRepository implements GameRepositoryContract {
         return INSTANCE;
     }
 
+    public static void resetInstance() {
+        if (INSTANCE != null) {
+            try {
+                INSTANCE.database.close();
+            } catch (Exception ignored) {
+            }
+        }
+
+        INSTANCE = null;
+    }
+
     private GameRepository(Context context) {
         this.context = context;
 

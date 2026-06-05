@@ -1,10 +1,12 @@
 package es.ulpgc.eite.da.advmasterdetail.games;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 
@@ -17,6 +19,7 @@ public class GameDetailActivity
     private GameDetailContract.Presenter presenter;
 
     private TextView backButton;
+    private TextView likesView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,11 @@ public class GameDetailActivity
 
     private void initView() {
         backButton = findViewById(R.id.back_button);
+        likesView = findViewById(R.id.product_likes);
+
         backButton.setOnClickListener(view -> presenter.backButtonClicked());
+
+        likesView.setOnClickListener(view -> presenter.favoriteButtonClicked());
     }
 
     @Override
@@ -77,8 +84,29 @@ public class GameDetailActivity
             ((TextView) findViewById(R.id.product_developer))
                     .setText(game.developer);
 
-            ((TextView) findViewById(R.id.product_likes))
-                    .setText("♥\uFE0E " + game.totalFavorites);
+            likesView.setText("♥\uFE0E " + game.totalFavorites);
+
+            if (viewModel.loggedIn) {
+                likesView.setVisibility(View.VISIBLE);
+                likesView.setClickable(true);
+
+                if (game.favorite) {
+                    likesView.setTextColor(
+                            ContextCompat.getColor(this, R.color.gv_red)
+                    );
+                } else {
+                    likesView.setTextColor(
+                            ContextCompat.getColor(this, R.color.gv_text_gray)
+                    );
+                }
+
+            } else {
+                likesView.setVisibility(View.VISIBLE);
+                likesView.setClickable(false);
+                likesView.setTextColor(
+                        ContextCompat.getColor(this, R.color.gv_text_gray)
+                );
+            }
 
             ((TextView) findViewById(R.id.product_detail))
                     .setText(game.description);

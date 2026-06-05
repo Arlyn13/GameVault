@@ -56,7 +56,32 @@ public class GameDetailPresenter implements GameDetailContract.Presenter {
         view.get().finishView();
     }
 
+    @Override
+    public void favoriteButtonClicked() {
 
+        int userId = model.getLoggedUserId();
+
+        if (userId == -1 || state.game == null) {
+            return;
+        }
+
+        boolean newFavoriteState = !state.game.favorite;
+
+        model.updateFavorite(
+                userId,
+                state.game.id,
+                newFavoriteState,
+                game -> {
+                    if (game != null) {
+                        state.game = game;
+                        state.loggedIn = true;
+
+                        mediator.setGame(game);
+                        view.get().displayGameDetailData(state);
+                    }
+                }
+        );
+    }
 
     @Override
     public void injectView(WeakReference<GameDetailContract.View> view) {

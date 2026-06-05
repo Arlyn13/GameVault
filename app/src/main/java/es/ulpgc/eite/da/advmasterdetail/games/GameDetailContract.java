@@ -2,6 +2,8 @@ package es.ulpgc.eite.da.advmasterdetail.games;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.da.advmasterdetail.data.GameRepositoryContract;
+
 public interface GameDetailContract {
 
     interface View {
@@ -27,9 +29,17 @@ public interface GameDetailContract {
 
         void backButtonClicked();
 
+        void favoriteButtonClicked();
     }
 
     interface Model {
         int getLoggedUserId();
+
+        void updateFavorite(
+                int userId,
+                int gameId,
+                boolean favorite,
+                GameRepositoryContract.GetGameCallback callback
+        );
     }
 }

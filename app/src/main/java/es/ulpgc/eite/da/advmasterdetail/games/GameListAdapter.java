@@ -93,8 +93,11 @@ public class GameListAdapter
             }
 
         } else {
-            holder.likesView.setOnClickListener(null);
-            holder.likesView.setClickable(false);
+            holder.likesView.setOnClickListener(view -> {
+                // Invitado: no se permite marcar favorito
+            });
+
+            holder.likesView.setClickable(true);
 
             holder.likesView.setTextColor(
                     ContextCompat.getColor(holder.itemView.getContext(), R.color.gv_text_gray)
